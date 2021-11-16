@@ -10,7 +10,7 @@ kd = ['ALA', "1.8", 'ARG', "-4.5", 'ASN', "-3.5", 'ASP', "-3.5", 'CYS', '2.5',
 
 obj = open(sys.argv[1], 'r')
 #pdb = open("1hda.pdb", "r")
-dataString = fobj.read()
+dataString = obj.read()
 dataList = dataString.split('\n')
 
 aaRawData = []

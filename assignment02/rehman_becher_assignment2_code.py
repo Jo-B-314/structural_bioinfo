@@ -1,6 +1,6 @@
 import re
 import sys
-from pylab import *
+# from pylab import *
 import matplotlib.pyplot as plt
 
 kd = ['ALA', "1.8", 'ARG', "-4.5", 'ASN', "-3.5", 'ASP', "-3.5", 'CYS', '2.5',
@@ -8,63 +8,24 @@ kd = ['ALA', "1.8", 'ARG', "-4.5", 'ASN', "-3.5", 'ASP', "-3.5", 'CYS', '2.5',
       'LEU', '3.8', 'LYS', '-3.9', 'MET', '1.9', 'PHE', '2.8', 'PRO', '-1.6',
       'SER', '-0.8', 'THR', '-0.7', 'TRP', '-0.9', 'TYR', '-1.3', 'VAL', '4.2']
 
-obj = open(sys.argv[1], 'r')
-#pdb = open("1hda.pdb", "r")
+# obj = open(sys.argv[1], 'r')
+obj = open("1hda.pdb", "r")
 dataString = obj.read()
 dataList = dataString.split('\n')
 
 aaRawData = []
 
 for i in dataList:
-    if re.findall('.*ATOM.*', i):
-        if re.findall('.*ALA.*', i):
-            aaRawData.append(i)
-        if re.findall('.*ARG.*', i):
-            aaRawData.append(i)
-        if re.findall('.*ASN.*', i):
-            aaRawData.append(i)
-        if re.findall('.*ASP.*', i):
-            aaRawData.append(i)
-        if re.findall('.*CYS.*', i):
-            aaRawData.append(i)
-        if re.findall('.*GLN.*', i):
-            aaRawData.append(i)
-        if re.findall('.*GLU.*', i):
-            aaRawData.append(i)
-        if re.findall('.*GLY.*', i):
-            aaRawData.append(i)
-        if re.findall('.*HIS.*', i):
-            aaRawData.append(i)
-        if re.findall('.*ILE.*', i):
-            aaRawData.append(i)
-        if re.findall('.*LEU.*', i):
-            aaRawData.append(i)
-        if re.findall('.*LYS.*', i):
-            aaRawData.append(i)
-        if re.findall('.*MET.*', i):
-            aaRawData.append(i)
-        if re.findall('.*PHE.*', i):
-            aaRawData.append(i)
-        if re.findall('.*PRO.*', i):
-            aaRawData.append(i)
-        if re.findall('.*SER.*', i):
-            aaRawData.append(i)
-        if re.findall('.*THR.*', i):
-            aaRawData.append(i)
-        if re.findall('.*TRP.*', i):
-            aaRawData.append(i)
-        if re.findall('.*TYR.*', i):
-            aaRawData.append(i)
-        if re.findall('.*VAL.*', i):
-            aaRawData.append(i)
+    if re.findall('.*SEQRES.*', i):
+        aaRawData.append(i)
 # print(aaRawData)
 
 aaRawString = ''.join(aaRawData)
-aaRawList = aaRawString.split(' ')
-# print(aaRawList)
+list = aaRawString.split(' ')
+# print(list)
 
 aaExtracted = []
-for i in aaRawList:
+for i in list:
     if re.findall('.*ALA.*', i):
         aaExtracted.append(i)
     if re.findall('.*ARG.*', i):
@@ -107,7 +68,8 @@ for i in aaRawList:
         aaExtracted.append(i)
 
 # print(aaExtracted)
-# print(len(aaExtracted))
+
+
 kdValues = []
 
 for i in range(0, len(aaExtracted)):
@@ -144,5 +106,5 @@ plt.plot(totalaa, average_3_kdvalues, linewidth=1.0)
 
 plt.xlabel("Residue number")
 plt.ylabel("Hydrophobicity")
-title("Hydrophobicity according to Kyte&Doolittle")
+plt.title("Hydrophobicity according to Kyte&Doolittle")
 plt.show()

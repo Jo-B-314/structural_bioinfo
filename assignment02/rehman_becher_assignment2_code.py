@@ -8,8 +8,8 @@ kd = ['ALA', "1.8", 'ARG', "-4.5", 'ASN', "-3.5", 'ASP', "-3.5", 'CYS', '2.5',
       'LEU', '3.8', 'LYS', '-3.9', 'MET', '1.9', 'PHE', '2.8', 'PRO', '-1.6',
       'SER', '-0.8', 'THR', '-0.7', 'TRP', '-0.9', 'TYR', '-1.3', 'VAL', '4.2']
 
-# obj = open(sys.argv[1], 'r')
-obj = open("1hda.pdb", "r")
+obj = open(sys.argv[1], 'r')
+# obj = open("1hda.pdb", "r")
 dataString = obj.read()
 dataList = dataString.split('\n')
 

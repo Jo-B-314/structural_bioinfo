@@ -8,7 +8,7 @@ from Bio import motifs
 # consensus = summary_align.dumb_consensus()
 # my_pssm = summary_align.pos_specific_score_matrix()
 
-# print(my_pssm)
+print(my_pssm)
 
 with open("seqMsa.fasta") as handle:
     motif = motifs.read(handle, "sites")

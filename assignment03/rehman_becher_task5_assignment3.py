@@ -71,4 +71,3 @@ for i in res:
 
 counts_mat = lm.alignment_to_matrix(x)
 print(counts_mat.head())
-##

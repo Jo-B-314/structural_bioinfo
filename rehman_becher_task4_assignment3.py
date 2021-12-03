@@ -10,9 +10,9 @@ from Bio import motifs
 
 # print(my_pssm)
 
-# with open("seqMsa.fasta") as handle:
-#     motif = motifs.read(handle, "sites")
-# print(motif.counts)
+with open("seqMsa.fasta") as handle:
+    motif = motifs.read(handle, "sites")
+print(motif.counts)
 
 
 from Bio import motifs

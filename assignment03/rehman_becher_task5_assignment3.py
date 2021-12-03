@@ -8,19 +8,6 @@ plt.ion()
 import logomaker as lm
 import re
 
-
-print()
-print('!!!!!!!!!!!!!!CONSENSUS!!!!!!!!!!!!!!')
-print()
-
-# align = AlignIO.read("seqMsa.fasta", "clustal")
-# # print(align)
-# summary_align = AlignInfo.SummaryInfo(align)
-# consensus = summary_align.dumb_consensus(require_multiple=1)
-# print(consensus)
-
-
-
 file = open('seqMsa.fasta', 'r')
 # file = open('sample.txt', 'r')
 # file = open('newSampleMSA.txt', 'r')
@@ -54,20 +41,10 @@ for i in fastaList:
 dict = {i: id.count(i) for i in id}
 totalRes = len(dict.keys())
 
-# print('total unique ids***************', totalRes)
-# print(id)
-# print('res==', res)
-# compare = res
-# print('compare==', compare)
-
-# inserting charecter in seq
-# for i in range(0, len(res) + 3, totalRes + 1):
-#     res.insert(i, '!')
-    # print(i)
-
 x= []
 for i in res:
     x.append(i[:60])
 
 counts_mat = lm.alignment_to_matrix(x)
 print(counts_mat.head())
+lm.Logo(counts_mat)

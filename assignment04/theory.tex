@@ -37,15 +37,15 @@ When it comes to modelling of 3 dimensional protein structure we want to be able
 Where $v = (v_1,..,v_n)$ is the first protein with n amino acids, w the second protein and $vi = (v_{ix}, v_{iy}, v_{iz})$ consists of the coordinates of the i-th \ce{C\alpha}-atom in v (respectively w). \newline
 Since RMSD weights all atoms equally it is very sensitive to local structure deviations, but it does not take into account the length of the alignment. This means the shorter the alignment is, the better the RMSD will be. \newline
 \newline
-Another measure, called GDT\_TS (=global distance test, total score) 
+Another measure, called GDT\_TS (=global distance test, total score) calculates the largest set of \ce{C\alpha}-atoms of two superimposed protein structures. It calculates a percentage of how many \ce{C\alpha}-atoms have a distance smaller than a predefinded cutoff. \newline
+It is more accurate than the RMSD and is used as a major assessment criteria in the CASP.\newline
 
-\subsection{Task 4}
+\subsection{Task 4 and 5}
 We were looking at the protein \textit{TNF-alpha} which is secreted by activated macrophages. It causes the necrosis of tumors (what the name already indicates) but it also plays a role in different signaling pathways.\newline
 The top 5 missense mutations are the following:\newline
 \includegraphics[height=15ex, width=450pt]{mutations.png}
-\newline
-\newline
-In the following picture you see the positions of those 5 mutations marked in red, while the rest of the protein is shown in green.\newline
+\newpage
+\noindent In the following picture you see the positions of those 5 mutations marked in red, while the rest of the protein is shown in green.\newline
 \includegraphics[height=40ex, width=200pt]{mutation_3d_small.png}
 \newline
 \newline
@@ -58,6 +58,11 @@ The numbers indicate the mutations by their allele frequency,
 	\item position 34: Ser $\rightarrow$ Thr
 \end{enumerate}
 
-
-
+\noindent Since mutations 2) and 5) are insinde a secondary structure they could break up this structure, what could cause a loss of functionality. \newline
+Changing Isoleucine into Aspargine could cause some changes. Both amino acids have a similar size but different side chains. \newline
+Replacing Serine with Threonine would only add a \ce{CH3} group what wouldn't have a big impact on the \ce{\alpha}-helix.\newline
+The other 3 muatations are placed in loops connectiong secondaary structures. The first mutation looks quite interesting, because it is quite close to an helix. When you replace Proline with Leucine you get an amino acids which prefers helices more than loops. It could cause an elongation of the \ce{\alpha}-helix. \newline
+The same could happen at mutation 4) because Glutamic Acid also likes helices.\newline
+\newline
+Those changes of the secondary strcture were not detectable with SwissModel, neither for mutation 4) nor mutation 1). 
 \end{document}

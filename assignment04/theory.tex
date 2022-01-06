@@ -2,6 +2,9 @@
 
 \usepackage{graphicx}
 \usepackage{enumerate}
+\usepackage[version=4,arrows=pgf]{mhchem}
+\usepackage{chemfig}
+\usepackage{amsmath}
 
 %opening
 \title{structural bioinformatics - assignment 4}
@@ -25,6 +28,16 @@ Those mutations can have a lethal impact or they can have even no impact at all.
 If a bacteria culture is exposed to an antibiotic it could happen, that somme bacteria mutate and their descendants become resistant to this antibiotic.
 
 \subsection{Task 3}
+When it comes to modelling of 3 dimensional protein structure we want to be able to compare different models and how "good" they are. Therefore we compare our models to experimantally resolved  protein structures by using a measure for structure similarity.\newpage 
+
+\noindent One of those measures is called RMSD, which calculates the root mean square deviation of the \ce{C\alpha}-atoms of n superimposed amino acids. \newline
+\begin{displaymath}
+	RMSD(v,w)=\sqrt{\frac{1}{n}\sum_{i=1}^{n}(||v_i-w_i||^2)}
+\end{displaymath}
+Where $v = (v_1,..,v_n)$ is the first protein with n amino acids, w the second protein and $vi = (v_{ix}, v_{iy}, v_{iz})$ consists of the coordinates of the i-th \ce{C\alpha}-atom in v (respectively w). \newline
+Since RMSD weights all atoms equally it is very sensitive to local structure deviations, but it does not take into account the length of the alignment. This means the shorter the alignment is, the better the RMSD will be. \newline
+\newline
+Another measure, called GDT\_TS (=global distance test, total score) 
 
 \subsection{Task 4}
 We were looking at the protein \textit{TNF-alpha} which is secreted by activated macrophages. It causes the necrosis of tumors (what the name already indicates) but it also plays a role in different signaling pathways.\newline
@@ -38,11 +51,11 @@ In the following picture you see the positions of those 5 mutations marked in re
 \newline
 The numbers indicate the mutations by their allele frequency,
 \begin{enumerate}[1)]
-	\item position  84: Pro $\rightarrow$ Leu
+	\item position 84: Pro $\rightarrow$ Leu
 	\item position 194: Ile $\rightarrow$ Asn
 	\item position 161: Val $\rightarrow$ Ile
-	\item position  54: Gly $\rightarrow$ Glu
-	\item position  34: Ser $\rightarrow$ Thr
+	\item position 54: Gly $\rightarrow$ Glu
+	\item position 34: Ser $\rightarrow$ Thr
 \end{enumerate}
 
 
